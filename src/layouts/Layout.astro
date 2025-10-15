@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+// Importar los estilos globales solo si contienen las directivas de Tailwind
+import "../styles/global.css";
+
+// Definición de las props esperadas
+interface Props {
+  title: string;
+  description: string;
+  // Las siguientes son opcionales y usadas solo si la página es un post de blog
+  pubDate?: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  // Usaremos una prop genérica para el contenido de la colección si es necesario
+  content?: CollectionEntry<'blog'>['data'];
+}
+
+// Desestructuración de props, asegurando que todas las variables estén disponibles
+const { title, description } = Astro.props;
+
+// NOTA: Las props específicas de blog (pubDate, heroImage, etc.) no se usan
+// en este layout genérico. Si necesitas un layout para posts de blog, crea
+// BlogLayout.astro que extienda este BaseLayout.
+---
+
+<html lang="es" class="transition-colors duration-500">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <BaseHead title={title} description={description} />
+    
+    <script is:inline>
+      // Detecta y aplica el tema ANTES de pintar la página
+      (() => {
+        const theme = localStorage.theme;
+        const systemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (theme === "dark" || (!theme && systemDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+  </head>
+
+  <body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors duration-500">
+    <Header />
+    <main class="w-full mx-auto py-12 px-4 sm:px-6">
+      <div class="prose max-w-4xl mx-auto">
+        
+        <slot />
+        
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

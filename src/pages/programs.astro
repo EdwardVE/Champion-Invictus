@@ -1,0 +1,134 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE } from "../consts";
+
+// Datos unificados de los programas
+const programs = [
+    {
+        emoji: "🟢",
+        title: "Niños (5 a 12 años)",
+        colorClass: "text-accent", // Usa el color de acento para destacar
+        description: "Juegos, equilibrio y primeros pasos en la técnica MTB. Nos enfocamos en el desarrollo motor a través de actividades lúdicas que fortalecen la coordinación, disciplina y seguridad desde el inicio.",
+        details: ["Desarrollo de equilibrio y coordinación.", "Primeros conceptos de frenado y dirección.", "Énfasis en la seguridad vial básica.", "Actividades 100% divertidas."],
+    },
+    {
+        emoji: "🟠",
+        title: "Jóvenes (13 a 17 años)",
+        colorClass: "text-orange-500", // Usamos un color secundario para diferenciación
+        description: "Entrenamientos más técnicos y enfocados en el rendimiento. Ideal para aquellos que buscan competir o superarse a sí mismos en desafíos más complejos de la ruta.",
+        details: ["Técnicas avanzadas de manejo (control de derrapes, saltos).", "Entrenamiento de resistencia y circuitos.", "Manejo de subidas y bajadas complejas.", "Preparación física específica para ciclismo."],
+    },
+    {
+        emoji: "🔵",
+        title: "Adultos (18+ años)",
+        colorClass: "text-blue-500", // Usamos otro color secundario
+        description: "Programas personalizados para mejorar técnica, fuerza y confianza sobre la bicicleta. Perfecto para quienes retoman el ciclismo o quieren dominar el MTB sin presión.",
+        details: ["Análisis y corrección de postura ergonómica.", "Entrenamientos de fuerza y resistencia.", "Rutas guiadas para ganar confianza en terrenos variados.", "Planes de entrenamiento ajustados a objetivos personales."],
+    },
+];
+
+// Datos logísticos (podrían ser un componente separado si la información crece)
+const location = "Engativá – Sietecanchas, Bogotá";
+const schedule = "Viernes de 4:00 p.m. a 5:00 p.m.";
+---
+
+<Layout
+    title={`Programas y Clases | ${SITE_TITLE}`}
+    description="Detalle de los programas de ciclismo para niños, jóvenes y adultos en la escuela Champions Invictus. Consulta horarios y ubicación."
+>
+    <main class="max-w-6xl mx-auto py-12 px-6">
+
+        <header class="text-center pb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 text-primary-light dark:text-primary-dark">
+                Nuestros Programas de Ciclismo
+            </h1>
+            <p class="text-xl text-text-light dark:text-gray-300 max-w-3xl mx-auto">
+                Diseñamos clases específicas para cada edad y nivel, garantizando progreso, seguridad y mucha diversión.
+            </p>
+        </header>
+
+        <section class="space-y-16">
+            {programs.map((program, index) => (
+                <article class={`grid md:grid-cols-2 gap-10 p-8 rounded-xl shadow-xl transition-all duration-300 ${index % 2 === 0 ? 'bg-gray-50 dark:bg-gray-800' : 'bg-white dark:bg-gray-900'}`}>
+                    
+                    <div>
+                        <h2 class={`text-3xl font-bold mb-3 ${program.colorClass}`}>
+                            {program.emoji} {program.title}
+                        </h2>
+                        <p class="text-lg mb-6 text-gray-700 dark:text-gray-300">{program.description}</p>
+                        
+                        <h3 class="text-xl font-semibold mb-3 text-text-light dark:text-text-dark border-b pb-1 border-primary-light/50 dark:border-primary-dark/50">
+                            Lo que aprenderás:
+                        </h3>
+                        
+                        <ul class="space-y-2 list-none p-0 text-gray-600 dark:text-gray-400">
+                            {program.details.map(detail => (
+                                <li class="flex items-start">
+                                    <span class={`mr-3 text-lg ${program.colorClass}`}>✓</span>
+                                    <span>{detail}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div class="mt-8">
+                            <a href="/contacto" 
+                                class="inline-block py-3 px-6 rounded-full font-bold transition duration-200 shadow-md 
+                                       bg-primary-light text-background-light hover:bg-primary-dark 
+                                       dark:bg-primary-dark dark:text-text-dark dark:hover:bg-accent"
+                            >
+                                ¡Inscribirme en la clase {program.title.split(' ')[0]}!
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center">
+                        <div class="w-full h-full min-h-60 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 italic">
+                            [Ilustración o foto de {program.title}]
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </section>
+
+        <section class="py-16 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-accent">📅 Horarios y Ubicación</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                
+                <div class="p-6 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg bg-white dark:bg-gray-800">
+                    <h3 class="text-2xl font-semibold mb-3 text-text-light dark:text-text-dark">Horarios Detallados</h3>
+                    <p class="text-lg font-bold text-accent mb-2">Grupo Actual:</p>
+                    <p class="text-2xl text-primary-light dark:text-primary-dark">{schedule}</p>
+                    <p class="mt-4 text-gray-600 dark:text-gray-400">
+                        * Pregunta por la disponibilidad de cupos y horarios adicionales para grupos privados.
+                    </p>
+                </div>
+                
+                <div class="p-6 border border-primary-light dark:border-primary-dark rounded-lg shadow-lg bg-white dark:bg-gray-800">
+                    <h3 class="text-2xl font-semibold mb-3 text-text-light dark:text-text-dark">📍 Lugar de Entrenamiento</h3>
+                    <p class="text-xl font-bold text-accent mb-4">{location}</p>
+                    <div class="h-48 w-full bg-gray-300 dark:bg-gray-700 rounded-md flex items-center justify-center italic text-sm text-gray-500">
+                        [Mapa de Google Maps incrustado aquí]
+                    </div>
+                    <p class="mt-4 text-gray-600 dark:text-gray-400 text-sm">
+                        Te enviaremos instrucciones detalladas y puntos de encuentro al confirmar tu reserva.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="text-center pt-8 pb-4">
+            <a 
+                href="/contacto" 
+                class="
+                    inline-block py-3 px-8 rounded-full font-bold text-xl transition duration-200 shadow-xl
+                    bg-accent text-background-dark hover:bg-primary-light dark:text-background-light
+                "
+            >
+                📲 Reserva tu Clase de Prueba
+            </a>
+        </section>
+
+    </main>
+</Layout>

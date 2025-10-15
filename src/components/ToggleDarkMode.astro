@@ -1,0 +1,57 @@
+
+<button
+  id="theme-toggle"
+  class="
+    p-2 rounded-lg 
+    
+    /* Colores del botón en Modo Claro */
+    bg-background-light text-text-light 
+    border border-primary-light 
+    hover:bg-primary-light hover:text-background-light 
+    
+    /* Colores del botón en Modo Oscuro */
+    dark:bg-background-dark dark:text-text-dark 
+    dark:border-primary-dark 
+    dark:hover:bg-primary-dark dark:hover:text-background-dark 
+    
+    transition duration-200
+  "
+  aria-label="Alternar modo oscuro"
+>
+  <span id="theme-icon" class="text-xl">🌙</span>
+
+  <script>
+    const html = document.documentElement;
+    const btn = document.getElementById("theme-toggle");
+    const icon = document.getElementById("theme-icon");
+
+    const setTheme = (theme: string) => {
+      if (!icon) return;
+      if (theme === "dark") {
+        html.classList.add("dark");
+        localStorage.theme = "dark";
+        icon.textContent = "☀️";
+      } else {
+        html.classList.remove("dark");
+        localStorage.theme = "light";
+        icon.textContent = "🌙";
+      }
+    };
+
+    // Establecer el tema inicial
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+
+    // Alternar tema al hacer clic
+    btn?.addEventListener("click", () => {
+      const isDark = html.classList.contains("dark");
+      setTheme(isDark ? "light" : "dark");
+    });
+  </script>
+</button>

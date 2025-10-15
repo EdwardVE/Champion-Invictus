@@ -1,49 +1,104 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE } from "../consts";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout
+    title={`Inicio | ${SITE_TITLE}`}
+    description="Clases de ciclismo para todas las edades. Aprende, mejora tu técnica y disfruta del ciclismo en un ambiente seguro, divertido y motivador en Bogotá."
+>
+    <main class="max-w-4xl mx-auto py-12 px-6">
+
+        <section class="text-center py-16 bg-background-light dark:bg-background-dark">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 text-primary-light dark:text-primary-dark">
+                Escuela de Ciclismo Champions Invictus
+            </h1>
+            <p class="text-xl sm:text-2xl font-semibold mb-8 text-text-light dark:text-text-dark">
+                🚴‍♀️ Clases de ciclismo para todas las edades.
+            </p>
+            <p class="mb-8 max-w-2xl mx-auto text-text-light dark:text-text-dark">
+                Aprende, mejora tu técnica y disfruta del ciclismo en un ambiente seguro, divertido y motivador. En nuestra escuela formamos ciclistas felices: desde los más pequeños que dan sus primeras pedaladas hasta adultos que quieren fortalecer su cuerpo y confianza sobre la bici.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                
+                <a href="/contacto" 
+                   class="
+                       inline-block py-3 px-6 rounded-full font-bold text-lg transition duration-200 shadow-md 
+                       bg-primary-light text-background-light hover:bg-primary-dark 
+                       dark:bg-primary-dark dark:text-text-dark dark:hover:bg-accent
+                   ">
+                    [Reserva tu clase]
+                </a>
+                
+                <a href="/programas" 
+                   class="
+                       inline-block py-3 px-6 rounded-full font-bold text-lg transition duration-200 shadow-md 
+                       bg-background-light text-primary-light border border-primary-light hover:bg-gray-100 
+                       dark:bg-background-dark dark:text-primary-dark dark:border-primary-dark dark:hover:bg-gray-800
+                   ">
+                    [Ver horarios y programas]
+                </a>
+            </div>
+            
+        </section>
+
+        <hr class="my-12 border-gray-300 dark:border-gray-700">
+
+        <section class="text-center py-8 text-text-light dark:text-text-dark">
+            <h2 class="text-3xl font-bold mb-4 text-accent">💚 Nuestra Misión</h2>
+            <p class="text-lg italic max-w-3xl mx-auto">
+                Somos una escuela de ciclismo que combina técnica MTB, actividad física y diversión para que cada persona disfrute mientras aprende. Creemos que el ciclismo es más que un deporte: es **disciplina, equilibrio y alegría**.
+            </p>
+            <p class="mt-4">
+                Con nosotros descubrirás cómo mejorar tu postura, tu resistencia y tu confianza, todo adaptado a tu nivel y edad.
+            </p>
+        </section>
+
+        <section class="py-12">
+            <h2 class="text-center text-3xl font-bold mb-10 text-primary-light dark:text-primary-dark">Clases diseñadas para cada etapa</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="p-6 border rounded-lg shadow-lg bg-white dark:bg-gray-800 border-accent/50">
+                    <h3 class="text-xl font-bold mb-2 text-accent">🟢 Niños (5 a 12 años)</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Juegos, equilibrio y primeros pasos en la técnica **MTB**. Enseñamos con actividades divertidas que fortalecen coordinación, disciplina y seguridad.</p>
+                </div>
+                
+                <div class="p-6 border rounded-lg shadow-lg bg-white dark:bg-gray-800 border-accent/50">
+                    <h3 class="text-xl font-bold mb-2 text-orange-500">🟠 Jóvenes (13 a 17 años)</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Entrenamientos más **técnicos**: manejo, frenado, subidas y bajadas, circuitos de resistencia. Ideal para quienes quieren competir o simplemente superarse.</p>
+                </div>
+                
+                <div class="p-6 border rounded-lg shadow-lg bg-white dark:bg-gray-800 border-accent/50">
+                    <h3 class="text-xl font-bold mb-2 text-blue-500">🔵 Adultos (18+ años)</h3>
+                    <p class="text-gray-700 dark:text-gray-300">Entrenamientos **personalizados** para mejorar técnica, fuerza y confianza. Perfectos para quienes desean retomar el ciclismo o explorar el MTB sin presión.</p>
+                </div>
+                
+            </div>
+            
+            <div class="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
+                <p>📅 Horarios: viernes de 4:00 p.m. a 5:00 p.m. — 📍 Lugar: Engativá – Sietecanchas</p>
+            </div>
+        </section>
+
+        <section class="text-center py-12">
+            <h2 class="text-3xl font-bold mb-4 text-primary-light dark:text-primary-dark">🚴‍♂️ Empieza tu aventura sobre dos ruedas hoy</h2>
+            <p class="mb-6 max-w-xl mx-auto text-text-light dark:text-text-dark">
+                No importa si apenas estás comenzando o ya tienes experiencia —lo importante es dar el siguiente paso. Ven y disfruta de un entrenamiento que combina deporte, diversión y comunidad.
+            </p>
+            
+            <a 
+                href="https://wa.me/+573003570205" 
+                target="_blank" 
+                class="
+                    inline-block py-3 px-6 rounded-full font-bold text-lg transition duration-200 shadow-md 
+                    bg-[#25D366] text-white hover:bg-[#128C7E]
+                "
+            >
+                📲 Contactar por WhatsApp
+            </a>
+        </section>
+
+    </main>
+</Layout>

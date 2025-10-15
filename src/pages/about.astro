@@ -1,63 +1,114 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE } from "../consts";
+
+// Datos de ejemplo para el equipo (Ajusta esto con el perfil de tus entrenadores)
+const teamMembers = [
+    {
+        name: "Lady Carolina Vasallo",
+        role: "Directora y Entrenador Principal",
+        bio: "Más de 10 años de experiencia en MTB y pedagogía deportiva. Su pasión es transformar la disciplina en alegría sobre la bicicleta.",
+        image: "/src/assets/bici1.jpg", // Asegúrate de tener esta imagen
+    },
+    {
+        name: "Edward VE",
+        role: "Asesor",
+        bio: "Responsable de la gestión administrativa",
+        image: "/src/assets/bici2.jpg",
+    },
+];
+
+// Datos de ejemplo para los valores
+const coreValues = [
+    { title: "Disciplina y Compromiso", description: "Fomentamos la constancia necesaria para alcanzar metas, tanto dentro como fuera de la ruta.", emoji: "⚙️" },
+    { title: "Equilibrio Físico y Mental", description: "Entendemos el ciclismo como una herramienta para fortalecer cuerpo y mente, mejorando la confianza y la postura.", emoji: "⚖️" },
+    { title: "Alegría y Comunidad", description: "Creemos que la diversión y un ambiente motivador son esenciales. Formamos una comunidad de ciclistas felices.", emoji: "🥳" },
+];
 ---
 
 <Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
+    title={`Sobre Nosotros | ${SITE_TITLE}`}
+    description="Conoce la misión y el equipo detrás de Champions Invictus. Disciplina, equilibrio y alegría para ciclistas de todas las edades."
 >
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+    <main class="max-w-5xl mx-auto py-12 px-6">
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+        <header class="text-center pb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 text-primary-light dark:text-primary-dark">
+                Conoce Champions Invictus
+            </h1>
+            <p class="text-xl text-text-light dark:text-text-dark max-w-3xl mx-auto">
+                No solo enseñamos a pedalear, enseñamos a amar el proceso. Somos tu escuela de ciclismo en Engativá.
+            </p>
+        </header>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+        <section class="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow-lg mb-16">
+            <h2 class="text-3xl font-bold mb-4 text-accent text-center">Nuestra Misión y Filosofía</h2>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="text-lg text-gray-700 dark:text-gray-300">
+                    <p class="mb-4">
+                        Somos una escuela de ciclismo comprometida con la formación integral. Nuestro enfoque combina la **técnica de MTB**, la **actividad física** y la **diversión** para que cada persona disfrute su camino.
+                    </p>
+                    <p>
+                        Creemos firmemente que el ciclismo es una escuela de vida: aporta **disciplina**, mejora el **equilibrio** y es una fuente inagotable de **alegría**. Adaptamos cada entrenamiento a tu nivel y edad, garantizando un progreso seguro y constante.
+                    </p>
+                </div>
+                <img 
+                    src="/src/assets/bici3.jpg" 
+                    alt="Niños y adultos disfrutando del ciclismo de montaña." 
+                    class="rounded-lg shadow-md w-full h-auto object-cover"
+                />
+            </div>
+        </section>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+        <section class="py-12">
+            <h2 class="text-3xl font-bold mb-10 text-primary-light dark:text-primary-dark text-center">Nuestros Pilares</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                {coreValues.map(value => (
+                    <div class="p-6 bg-background-light dark:bg-gray-900 rounded-lg shadow-md">
+                        <span class="text-4xl mb-4 inline-block">{value.emoji}</span>
+                        <h3 class="text-xl font-bold mb-2 text-text-light dark:text-text-dark">{value.title}</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">{value.description}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+        <section class="py-16">
+            <h2 class="text-3xl font-bold mb-10 text-primary-light dark:text-primary-dark text-center">Conoce a Nuestros Entrenadores</h2>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                {teamMembers.map(member => (
+                    <div class="flex items-start gap-6 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-xl">
+                        <img 
+                            src={member.image} 
+                            alt={`Foto de ${member.name}`} 
+                            class="w-24 h-24 object-cover rounded-full flex-shrink-0 border-4 border-accent"
+                        />
+                        <div>
+                            <h3 class="text-xl font-bold text-text-light dark:text-text-dark">{member.name}</h3>
+                            <p class="text-accent font-semibold mb-2">{member.role}</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">{member.bio}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            
+            <p class="text-center mt-12 text-lg text-text-light dark:text-text-dark">
+                Nuestro equipo está aquí para garantizar que tus clases sean **seguras, efectivas y llenas de motivación**.
+            </p>
+        </section>
+
+        <section class="text-center pt-8 pb-4">
+            <a 
+                href="/contacto" 
+                class="
+                    inline-block py-3 px-8 rounded-full font-bold text-xl transition duration-200 shadow-xl
+                    bg-accent text-background-dark hover:bg-primary-light dark:text-background-light
+                "
+            >
+                ¡Únete a la Comunidad Champions!
+            </a>
+        </section>
+
+    </main>
 </Layout>
